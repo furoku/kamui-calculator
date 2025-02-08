@@ -17,7 +17,7 @@
 - TypeScript
 - Tailwind CSS
 - React
-- Google Fonts (Zen Antique)
+- Google Fonts (Reggae One)
 
 ## 開発環境のセットアップ
 

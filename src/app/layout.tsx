@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Zen_Antique } from "next/font/google";
+import { Inter, Reggae_One } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const zenAntique = Zen_Antique({
+const reggaeOne = Reggae_One({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
