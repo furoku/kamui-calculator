@@ -3,6 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import Display from './Display';
+import { Orbitron } from 'next/font/google';
+
+const orbitron = Orbitron({
+  weight: "700",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 interface Bubble {
   id: number;
@@ -149,7 +156,7 @@ export default function ClientCalculator() {
   };
 
   return (
-    <div className="relative w-[380px] p-7 rounded-lg overflow-hidden transform transition-transform duration-200 bg-gradient-to-b from-gray-100 to-gray-200">
+    <div className="relative w-[380px] p-7 rounded-lg overflow-hidden transform transition-transform duration-200 bg-[url('/images/gray-texture_1122-959.jpg')] bg-cover bg-center shadow-[0_8px_16px_rgba(0,0,0,0.5),-2px_-2px_8px_rgba(255,255,255,0.2)]">
       {/* シャープな光沢効果 */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
