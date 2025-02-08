@@ -34,12 +34,36 @@ const COLORS = [
   'bg-amber-400/70'
 ];
 
+// ボタンのスタイル定義を更新
+const operatorButtonClass = `
+  bg-gradient-to-br from-orange-300 to-orange-500
+  text-white
+  hover:from-orange-400 hover:to-orange-600
+  active:from-orange-500 active:to-orange-700
+`;
+
+const equalsButtonClass = `
+  bg-gradient-to-br from-blue-400 to-blue-600
+  text-white
+  hover:from-blue-500 hover:to-blue-700
+  active:from-blue-600 active:to-blue-800
+`;
+
+const clearButtonClass = `
+  col-span-4
+  bg-gradient-to-br from-red-400 to-red-600
+  text-white
+  hover:from-red-500 hover:to-red-700
+  active:from-red-600 active:to-red-800
+`;
+
 export default function ClientCalculator() {
   const [display, setDisplay] = useState('0');
   const [equation, setEquation] = useState('');
   const [shouldResetDisplay, setShouldResetDisplay] = useState(false);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const [nextId, setNextId] = useState(0);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const createBubble = () => {
@@ -112,7 +136,7 @@ export default function ClientCalculator() {
         setDisplay(formattedResult);
         setEquation('');
       } catch (error) {
-        setDisplay('Error');
+        setError('Error');
       }
       setShouldResetDisplay(true);
     }
@@ -125,7 +149,18 @@ export default function ClientCalculator() {
   };
 
   return (
-    <div className="relative w-[380px] bg-white/40 p-7 rounded-xl shadow-2xl transform transition-all duration-300 hover:shadow-xl backdrop-blur-md overflow-hidden">
+    <div className="relative w-[380px] p-7 rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02]">
+      {/* 背景の光沢効果 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-white/40 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-white/10 to-transparent" />
+      
+      {/* エッジライト効果 */}
+      <div className="absolute inset-0 border border-white/30 rounded-2xl" />
+      <div className="absolute inset-[1px] border border-black/5 rounded-2xl" />
+
+      {/* シャドウ効果 */}
+      <div className="absolute inset-0 shadow-[0_0_50px_rgba(0,0,0,0.1)] rounded-2xl" />
+
       {/* バブルアニメーション背景 */}
       <div className="absolute inset-0">
         {bubbles.map(bubble => (
@@ -155,29 +190,29 @@ export default function ClientCalculator() {
 
       {/* メインコンテンツ */}
       <div className="relative z-10">
-        <Display value={equation + display} />
+        <Display value={equation + display} error={error} />
         <div className="grid grid-cols-4 gap-5">
           <Button value="7" onClick={handleNumber} />
           <Button value="8" onClick={handleNumber} />
           <Button value="9" onClick={handleNumber} />
-          <Button value="÷" onClick={() => handleOperator('/')} className="bg-orange-400 hover:bg-orange-500 text-white" />
+          <Button value="÷" onClick={() => handleOperator('/')} className={operatorButtonClass} />
           
           <Button value="4" onClick={handleNumber} />
           <Button value="5" onClick={handleNumber} />
           <Button value="6" onClick={handleNumber} />
-          <Button value="×" onClick={() => handleOperator('*')} className="bg-orange-400 hover:bg-orange-500 text-white" />
+          <Button value="×" onClick={() => handleOperator('*')} className={operatorButtonClass} />
           
           <Button value="1" onClick={handleNumber} />
           <Button value="2" onClick={handleNumber} />
           <Button value="3" onClick={handleNumber} />
-          <Button value="-" onClick={() => handleOperator('-')} className="bg-orange-400 hover:bg-orange-500 text-white" />
+          <Button value="-" onClick={() => handleOperator('-')} className={operatorButtonClass} />
           
           <Button value="0" onClick={handleNumber} />
           <Button value="." onClick={handleNumber} />
-          <Button value="=" onClick={handleEquals} className="bg-blue-500 hover:bg-blue-600 text-white" />
-          <Button value="+" onClick={() => handleOperator('+')} className="bg-orange-400 hover:bg-orange-500 text-white" />
+          <Button value="=" onClick={handleEquals} className={equalsButtonClass} />
+          <Button value="+" onClick={() => handleOperator('+')} className={operatorButtonClass} />
           
-          <Button value="C" onClick={handleClear} className="col-span-4 bg-red-500 hover:bg-red-600 text-white" />
+          <Button value="C" onClick={handleClear} className={clearButtonClass} />
         </div>
       </div>
     </div>
