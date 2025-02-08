@@ -1,4 +1,4 @@
-# Kamui Calculator
+# 神威計算
 
 アニメーションが美しい、モダンな電卓アプリケーション
 
@@ -17,6 +17,7 @@
 - TypeScript
 - Tailwind CSS
 - React
+- Google Fonts (Reggae One)
 
 ## 開発環境のセットアップ
 
@@ -55,4 +56,4 @@ MIT
 
 ## 作者
 
-furoku 
+furoku
