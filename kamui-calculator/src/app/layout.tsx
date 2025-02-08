@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, DotGothic16, Yuji_Syuku } from "next/font/google";
+import { Inter, Reggae_One } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const dotGothic = DotGothic16({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-const yujiSyuku = Yuji_Syuku({
+const reggaeOne = Reggae_One({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kamui Calculator",
-  description: "A simple calculator application",
+  title: "神威計算",
+  description: "アニメーションが美しい、モダンな電卓アプリケーション",
 };
 
 export default function RootLayout({
