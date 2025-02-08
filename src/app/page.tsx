@@ -13,7 +13,7 @@ export default function Home() {
     <ErrorBoundary>
       <main 
         suppressHydrationWarning={true}
-        className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100"
+        className="flex min-h-screen flex-col items-center justify-center p-24 bg-[url('/images/G142_mokumecyou.jpg')] bg-cover bg-center relative"
       >
         <h1 className={`
           text-5xl font-bold mb-8 
@@ -42,10 +42,13 @@ export default function Home() {
           [text-shadow:0_0_30px_rgba(255,255,255,0.6)]
           hover:scale-105 transition-transform duration-300
           hover:[text-shadow:0_0_40px_rgba(255,255,255,0.8)]
+          z-10
         `}>
           神威計算
         </h1>
-        <ClientCalculator />
+        <div className="relative z-10">
+          <ClientCalculator />
+        </div>
       </main>
     </ErrorBoundary>
   );
