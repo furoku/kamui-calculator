@@ -36,14 +36,14 @@ const COLORS = [
 
 // ボタンのスタイル定義を更新
 const operatorButtonClass = `
-  bg-gradient-to-br from-orange-300 to-orange-500
+  bg-gradient-to-b from-orange-300 to-orange-500
   text-white
   hover:from-orange-400 hover:to-orange-600
   active:from-orange-500 active:to-orange-700
 `;
 
 const equalsButtonClass = `
-  bg-gradient-to-br from-blue-400 to-blue-600
+  bg-gradient-to-b from-blue-400 to-blue-600
   text-white
   hover:from-blue-500 hover:to-blue-700
   active:from-blue-600 active:to-blue-800
@@ -51,7 +51,7 @@ const equalsButtonClass = `
 
 const clearButtonClass = `
   col-span-4
-  bg-gradient-to-br from-red-400 to-red-600
+  bg-gradient-to-b from-red-400 to-red-600
   text-white
   hover:from-red-500 hover:to-red-700
   active:from-red-600 active:to-red-800
@@ -63,7 +63,7 @@ export default function ClientCalculator() {
   const [shouldResetDisplay, setShouldResetDisplay] = useState(false);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const [nextId, setNextId] = useState(0);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const createBubble = () => {
@@ -149,24 +149,24 @@ export default function ClientCalculator() {
   };
 
   return (
-    <div className="relative w-[380px] p-7 rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02]">
-      {/* 背景の光沢効果 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-white/40 backdrop-blur-md" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-white/10 to-transparent" />
+    <div className="relative w-[380px] p-7 rounded-lg overflow-hidden transform transition-transform duration-200 bg-gradient-to-b from-gray-100 to-gray-200">
+      {/* シャープな光沢効果 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
       
       {/* エッジライト効果 */}
-      <div className="absolute inset-0 border border-white/30 rounded-2xl" />
-      <div className="absolute inset-[1px] border border-black/5 rounded-2xl" />
+      <div className="absolute inset-0 border border-white/20 rounded-lg" />
+      <div className="absolute inset-[1px] border border-black/10 rounded-lg" />
 
       {/* シャドウ効果 */}
-      <div className="absolute inset-0 shadow-[0_0_50px_rgba(0,0,0,0.1)] rounded-2xl" />
+      <div className="absolute inset-0 shadow-[0_2px_4px_rgba(0,0,0,0.1),inset_0_1px_2px_rgba(255,255,255,0.5)] rounded-lg" />
 
-      {/* バブルアニメーション背景 */}
+      {/* バブルアニメーション */}
       <div className="absolute inset-0">
         {bubbles.map(bubble => (
           <div
             key={bubble.id}
-            className={`absolute rounded-full blur-md ${bubble.color}`}
+            className={`absolute rounded-full ${bubble.color}`}
             style={{
               width: `${bubble.size}px`,
               height: `${bubble.size}px`,
@@ -179,19 +179,19 @@ export default function ClientCalculator() {
               '--ty2': `${bubble.ty2}px`,
               '--tx3': `${bubble.tx3}px`,
               '--ty3': `${bubble.ty3}px`,
-              filter: 'brightness(1.8)'
+              filter: 'none',
             } as any}
           />
         ))}
       </div>
 
-      {/* グラデーションオーバーレイ */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5" />
+      {/* グリッドパターン */}
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49%,rgba(0,0,0,0.02)_49%,rgba(0,0,0,0.02)_51%,transparent_51%),linear-gradient(0deg,transparent_49%,rgba(0,0,0,0.02)_49%,rgba(0,0,0,0.02)_51%,transparent_51%)] bg-[length:20px_20px]" />
 
       {/* メインコンテンツ */}
       <div className="relative z-10">
         <Display value={equation + display} error={error} />
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-4">
           <Button value="7" onClick={handleNumber} />
           <Button value="8" onClick={handleNumber} />
           <Button value="9" onClick={handleNumber} />

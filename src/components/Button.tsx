@@ -19,33 +19,36 @@ const Button: React.FC<ButtonProps> = ({ value, onClick, className }) => {
   const baseClasses = `
     w-16 h-16 
     text-xl 
-    rounded-xl 
+    rounded-lg 
     transition-all 
-    duration-150 
+    duration-100 
     transform 
     relative
-    overflow-hidden
-    shadow-lg
+    shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_1px_2px_rgba(0,0,0,0.2)]
+    active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]
     before:absolute
     before:inset-0
-    before:bg-gradient-to-br
-    before:from-white/50
+    before:rounded-lg
+    before:bg-gradient-to-b
+    before:from-white/40
     before:to-transparent
-    before:opacity-50
+    before:opacity-100
+    active:before:opacity-0
     after:absolute
     after:inset-0
-    after:bg-gradient-to-br
-    after:from-transparent
-    after:to-black/20
-    hover:-translate-y-1
-    active:translate-y-0
-    hover:shadow-xl
-    active:shadow-md
+    after:rounded-lg
+    after:bg-gradient-to-t
+    after:from-black/20
+    after:to-transparent
+    after:opacity-0
+    active:after:opacity-100
+    hover:-translate-y-0.5
+    active:translate-y-0.5
     ${orbitron.className}
   `;
 
   const defaultClasses = `
-    bg-gradient-to-br from-gray-100 to-gray-300
+    bg-gradient-to-b from-gray-100 to-gray-300
     text-gray-700
     hover:from-gray-200 hover:to-gray-400
     active:from-gray-300 active:to-gray-500
