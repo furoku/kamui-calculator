@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -15px) scale(1.1); }
+  66% { transform: translate(-8px, 10px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-12px, -8px) scale(0.9); }
+  66% { transform: translate(15px, 12px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-3 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(8px, 12px) scale(1.1); }
+  66% { transform: translate(-10px, -15px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes bubble-fade {
+  0% { 
+    opacity: 0;
+    transform: translate(0, 0) scale(0.1);
+  }
+  20% { 
+    opacity: 0.7;
+    transform: translate(var(--tx1), var(--ty1)) scale(1);
+  }
+  80% { 
+    opacity: 0.7;
+    transform: translate(var(--tx2), var(--ty2)) scale(0.95);
+  }
+  100% { 
+    opacity: 0;
+    transform: translate(var(--tx3), var(--ty3)) scale(0.1);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 linear infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 linear infinite;
+}
+
+.animate-float-3 {
+  animation: float-3 linear infinite;
+}
+
+.animate-bubble {
+  animation: bubble-fade ease-in-out forwards;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
