@@ -149,7 +149,7 @@ export default function ClientCalculator() {
   };
 
   return (
-    <div className="relative w-[380px] p-7 rounded-lg overflow-hidden transform transition-transform duration-200 hover:scale-[1.02] bg-gradient-to-b from-gray-100 to-gray-200">
+    <div className="relative w-[380px] p-7 rounded-lg overflow-hidden transform transition-transform duration-200 bg-gradient-to-b from-gray-100 to-gray-200">
       {/* シャープな光沢効果 */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
@@ -179,6 +179,7 @@ export default function ClientCalculator() {
               '--ty2': `${bubble.ty2}px`,
               '--tx3': `${bubble.tx3}px`,
               '--ty3': `${bubble.ty3}px`,
+              filter: 'none',
             } as any}
           />
         ))}
