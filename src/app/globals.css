@@ -42,6 +42,15 @@
   }
 }
 
+@keyframes title-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .animate-float-1 {
   animation: float-1 linear infinite;
 }
@@ -56,6 +65,17 @@
 
 .animate-bubble {
   animation: bubble-fade ease-in-out forwards;
+}
+
+.title-shine {
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.8) 25%,
+    transparent 30%
+  );
+  background-size: 200% auto;
+  animation: title-shine 3s linear infinite;
 }
 
 :root {
