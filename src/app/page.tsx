@@ -8,6 +8,10 @@ const reggaeOne = Reggae_One({
   display: "swap",
 });
 
+export const metadata = {
+  title: '神威電卓'
+};
+
 export default function Home() {
   return (
     <ErrorBoundary>
