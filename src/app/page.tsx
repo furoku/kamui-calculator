@@ -9,7 +9,7 @@ const reggaeOne = Reggae_One({
 });
 
 export const metadata = {
-  title: '神威電卓'
+  title: 'ヨクスル電卓'
 };
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           px-8 py-4
           bg-gradient-to-b from-blue-400 to-blue-600
           text-transparent bg-clip-text
-          after:content-['神威電卓']
+          after:content-['ヨクスル電卓']
           after:absolute after:left-0 after:top-0
           after:px-8 after:py-4
           after:w-full after:h-full
@@ -35,7 +35,7 @@ export default function Home() {
           after:text-transparent after:bg-clip-text
           after:translate-y-[0.15em]
           after:z-[-1]
-          before:content-['神威電卓']
+          before:content-['ヨクスル電卓']
           before:absolute before:left-0 before:top-0
           before:px-8 before:py-4
           before:w-full before:h-full
@@ -48,7 +48,7 @@ export default function Home() {
           hover:[text-shadow:0_0_40px_rgba(255,255,255,0.8)]
           z-10
         `}>
-          神威電卓
+          ヨクスル電卓
         </h1>
         <div className="relative z-10">
           <ClientCalculator />
